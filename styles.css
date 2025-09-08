@@ -129,7 +129,7 @@ body {
     height: 180px;
     z-index: 1;
     pointer-events: none;
-    animation: fullScreenMovement 18s ease-in-out infinite;
+    animation: slowHorizontalMovement 25s ease-in-out infinite;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -153,18 +153,31 @@ body {
     transform: scaleX(4) scaleY(1);
 }
 
-@keyframes fullScreenMovement {
+@keyframes slowHorizontalMovement {
     0% {
         left: -100vw;
         opacity: 0.8;
+        transform: translateX(0);
+    }
+    25% {
+        left: 0vw;
+        opacity: 1;
+        transform: translateX(0);
     }
     50% {
         left: 100vw;
         opacity: 1;
+        transform: translateX(0);
+    }
+    75% {
+        left: 0vw;
+        opacity: 1;
+        transform: translateX(0);
     }
     100% {
         left: -100vw;
         opacity: 0.8;
+        transform: translateX(0);
     }
 }
 
@@ -181,7 +194,7 @@ body {
     font-weight: 300;
     letter-spacing: 0.1em;
     margin-bottom: 1rem;
-    background: linear-gradient(45deg, #e8eaf6, #c5cae9, #9fa8da, #7986cb);
+    background: linear-gradient(45deg, #c0c0c0, #a8a8a8, #909090, #787878);
     background-size: 400% 400%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -189,6 +202,7 @@ body {
     animation: gradient-shift 4s ease-in-out infinite;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
     font-family: 'Playfair Display', serif;
+    color: #c0c0c0;
 }
 
 .book-title {
@@ -257,14 +271,41 @@ body {
 }
 
 .btn-primary {
-    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    background: linear-gradient(45deg, #FFD700, #FFD700, #FFD700, #FFD700);
+    background-size: 200% 200%;
+    color: #1a1a1a;
+    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, #FFD700 0%, #FFD700 33%, #FF0000 33%, #FF0000 66%, #0000FF 66%, #0000FF 100%);
+    background-size: 300% 300%;
+    animation: venezuelaFlag 3s ease-in-out infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.btn-primary:hover::before {
+    opacity: 1;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(45deg, #FFD700, #FF0000, #0000FF);
     color: white;
-    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
+    box-shadow: 0 15px 35px rgba(255, 215, 0, 0.6);
 }
 
 .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 15px 35px rgba(255, 107, 107, 0.4);
+    box-shadow: 0 15px 35px rgba(255, 215, 0, 0.6);
 }
 
 .btn-secondary {
@@ -293,8 +334,34 @@ body {
     height: 80px;
     background: linear-gradient(45deg, #8a2be2, #4169e1);
     border-radius: 5px;
-    opacity: 0.1;
-    animation: float 6s ease-in-out infinite;
+    opacity: 0.15;
+    animation: bookFloat 8s ease-in-out infinite;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.floating-book::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, #4a148c, #1a237e);
+    border-radius: 5px;
+    transform: rotateY(0deg);
+    transition: transform 0.3s ease;
+}
+
+.floating-book::after {
+    content: '📖';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    z-index: 2;
+    opacity: 0.8;
 }
 
 .floating-book:nth-child(1) {
@@ -917,12 +984,33 @@ body {
     }
 }
 
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0px) rotate(0deg);
+@keyframes venezuelaFlag {
+    0% {
+        background-position: 0% 50%;
     }
     50% {
-        transform: translateY(-20px) rotate(180deg);
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes bookFloat {
+    0% {
+        transform: translateY(0px) rotateY(0deg) rotateX(0deg);
+    }
+    25% {
+        transform: translateY(-15px) rotateY(90deg) rotateX(10deg);
+    }
+    50% {
+        transform: translateY(-25px) rotateY(180deg) rotateX(0deg);
+    }
+    75% {
+        transform: translateY(-15px) rotateY(270deg) rotateX(-10deg);
+    }
+    100% {
+        transform: translateY(0px) rotateY(360deg) rotateX(0deg);
     }
 }
 
@@ -977,18 +1065,31 @@ body {
         left: 0;
     }
     
-    @keyframes fullScreenMovementMobile {
+    @keyframes slowHorizontalMovementMobile {
         0% {
             left: -100vw;
             opacity: 0.8;
+            transform: translateX(0);
+        }
+        25% {
+            left: 0vw;
+            opacity: 1;
+            transform: translateX(0);
         }
         50% {
             left: 100vw;
             opacity: 1;
+            transform: translateX(0);
+        }
+        75% {
+            left: 0vw;
+            opacity: 1;
+            transform: translateX(0);
         }
         100% {
             left: -100vw;
             opacity: 0.8;
+            transform: translateX(0);
         }
     }
     
@@ -997,7 +1098,7 @@ body {
         width: 100vw;
         height: 140px;
         left: -100vw;
-        animation: fullScreenMovementMobile 18s ease-in-out infinite;
+        animation: slowHorizontalMovementMobile 25s ease-in-out infinite;
         overflow: hidden;
         display: flex;
         align-items: center;
@@ -1078,6 +1179,7 @@ body {
 @media (max-width: 480px) {
     .author-name {
         font-size: 2rem;
+        color: #c0c0c0;
     }
     
     
