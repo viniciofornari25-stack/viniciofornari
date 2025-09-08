@@ -137,7 +137,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: transparent;
+    background: linear-gradient(135deg, #0a0e27 0%, #1a1a2e 25%, #16213e 50%, #0f0f23 75%, #000051 100%);
 }
 
 .rotating-hero-image {
@@ -148,7 +148,7 @@ body {
     border-radius: 0;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
-    background: transparent;
+    background: linear-gradient(135deg, #0a0e27 0%, #1a1a2e 25%, #16213e 50%, #0f0f23 75%, #000051 100%);
     border: none;
     filter: brightness(1.1) contrast(1.2) saturate(1.05);
     padding: 0;
@@ -1132,7 +1132,7 @@ body {
         display: flex;
         align-items: center;
         justify-content: center;
-        background: transparent;
+        background: linear-gradient(135deg, #0a0e27 0%, #1a1a2e 25%, #16213e 50%, #0f0f23 75%, #000051 100%);
     }
     
     .rotating-hero-image {
@@ -1140,7 +1140,7 @@ body {
         height: 140px;
         object-fit: contain;
         object-position: center;
-        background: transparent;
+        background: linear-gradient(135deg, #0a0e27 0%, #1a1a2e 25%, #16213e 50%, #0f0f23 75%, #000051 100%);
         border: none;
         filter: brightness(1.1) contrast(1.2) saturate(1.05);
         border-radius: 0;
