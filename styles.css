@@ -140,9 +140,9 @@ body {
 }
 
 .rotating-hero-image {
-    width: 100vw;
+    width: auto;
     height: 180px;
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
     border-radius: 0;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
@@ -151,7 +151,7 @@ body {
     border: none;
     filter: brightness(1.1) contrast(1.2) saturate(1.05);
     padding: 0;
-    max-width: none;
+    max-width: 100%;
     transform: scaleX(1) scaleY(1);
 }
 
@@ -197,15 +197,16 @@ body {
     font-weight: 300;
     letter-spacing: 0.1em;
     margin-bottom: 1rem;
-    background: linear-gradient(45deg, #c0c0c0, #a8a8a8, #909090, #787878);
+    background: linear-gradient(45deg, #e8e8e8, #d3d3d3, #c0c0c0, #a8a8a8);
     background-size: 400% 400%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     animation: gradient-shift 4s ease-in-out infinite;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 0 20px rgba(192, 192, 192, 0.8), 0 0 40px rgba(192, 192, 192, 0.6), 0 0 60px rgba(192, 192, 192, 0.4);
     font-family: 'Playfair Display', serif;
     color: #c0c0c0;
+    filter: brightness(1.2) contrast(1.1);
 }
 
 .book-title {
@@ -274,13 +275,14 @@ body {
 }
 
 .btn-primary {
-    background: linear-gradient(45deg, #C0C0C0, #C0C0C0, #C0C0C0, #C0C0C0);
+    background: linear-gradient(45deg, #FFD700, #FFD700, #FFD700, #FFD700);
     background-size: 200% 200%;
     color: #1a1a1a;
-    box-shadow: 0 8px 25px rgba(192, 192, 192, 0.4);
+    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
     position: relative;
     overflow: hidden;
-    border: 2px solid #C0C0C0;
+    border: 2px solid #FFD700;
+    font-weight: 600;
 }
 
 .btn-primary::before {
@@ -290,9 +292,9 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(45deg, #C0C0C0 0%, #C0C0C0 20%, #FFD700 20%, #FFD700 40%, #0000FF 40%, #0000FF 60%, #FF0000 60%, #FF0000 80%, #C0C0C0 80%, #C0C0C0 100%);
+    background: linear-gradient(45deg, #FFD700 0%, #FFD700 25%, #0000FF 25%, #0000FF 50%, #FF0000 50%, #FF0000 75%, #FFD700 75%, #FFD700 100%);
     background-size: 400% 400%;
-    animation: venezuelaFlag 4s ease-in-out infinite;
+    animation: venezuelaFlag 3s ease-in-out infinite;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -302,15 +304,16 @@ body {
 }
 
 .btn-primary:hover {
-    background: linear-gradient(45deg, #C0C0C0, #FFD700, #0000FF, #FF0000);
+    background: linear-gradient(45deg, #FFD700, #0000FF, #FF0000);
     color: white;
-    box-shadow: 0 15px 35px rgba(192, 192, 192, 0.6);
+    box-shadow: 0 15px 35px rgba(255, 215, 0, 0.6);
     border-color: #FFD700;
+    transform: translateY(-3px);
 }
 
 .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 15px 35px rgba(192, 192, 192, 0.6);
+    box-shadow: 0 15px 35px rgba(255, 215, 0, 0.6);
 }
 
 .btn-secondary {
@@ -370,21 +373,39 @@ body {
 }
 
 .floating-book:nth-child(1) {
-    top: 20%;
-    left: 10%;
+    top: 15%;
+    left: 8%;
     animation-delay: 0s;
 }
 
 .floating-book:nth-child(2) {
-    top: 60%;
-    right: 15%;
-    animation-delay: 2s;
+    top: 25%;
+    right: 12%;
+    animation-delay: 1s;
 }
 
 .floating-book:nth-child(3) {
-    bottom: 30%;
-    left: 20%;
+    top: 45%;
+    left: 5%;
+    animation-delay: 2s;
+}
+
+.floating-book:nth-child(4) {
+    top: 55%;
+    right: 8%;
+    animation-delay: 3s;
+}
+
+.floating-book:nth-child(5) {
+    bottom: 25%;
+    left: 15%;
     animation-delay: 4s;
+}
+
+.floating-book:nth-child(6) {
+    bottom: 35%;
+    right: 20%;
+    animation-delay: 5s;
 }
 
 .scroll-indicator {
@@ -1112,9 +1133,9 @@ body {
     }
     
     .rotating-hero-image {
-        width: 100vw;
+        width: auto;
         height: 140px;
-        object-fit: cover;
+        object-fit: contain;
         object-position: center;
         background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 25%, #2563eb 50%, #3b82f6 75%, #60a5fa 100%);
         border: none;
@@ -1122,7 +1143,7 @@ body {
         border-radius: 0;
         padding: 0;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        max-width: none;
+        max-width: 100%;
         transform: scaleX(1) scaleY(1);
     }
     
