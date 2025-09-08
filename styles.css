@@ -136,18 +136,18 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: transparent;
+    background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 25%, #2563eb 50%, #3b82f6 75%, #60a5fa 100%);
 }
 
 .rotating-hero-image {
     width: 100vw;
     height: 180px;
-    object-fit: contain;
+    object-fit: cover;
     object-position: center;
     border-radius: 0;
-    box-shadow: none;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
-    background: transparent;
+    background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 25%, #2563eb 50%, #3b82f6 75%, #60a5fa 100%);
     border: none;
     filter: brightness(1.1) contrast(1.2) saturate(1.05);
     padding: 0;
@@ -188,7 +188,7 @@ body {
     z-index: 10;
     position: relative;
     animation: fadeInUp 1s ease-out;
-    margin-top: 300px;
+    margin-top: 320px;
     padding: 0 20px;
 }
 
@@ -1108,26 +1108,26 @@ body {
         display: flex;
         align-items: center;
         justify-content: center;
-        background: transparent;
+        background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 25%, #2563eb 50%, #3b82f6 75%, #60a5fa 100%);
     }
     
     .rotating-hero-image {
         width: 100vw;
         height: 140px;
-        object-fit: contain;
+        object-fit: cover;
         object-position: center;
-        background: transparent;
+        background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 25%, #2563eb 50%, #3b82f6 75%, #60a5fa 100%);
         border: none;
         filter: brightness(1.1) contrast(1.2) saturate(1.05);
         border-radius: 0;
         padding: 0;
-        box-shadow: none;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         max-width: none;
         transform: scaleX(1) scaleY(1);
     }
     
     .hero-content {
-        margin-top: 250px;
+        margin-top: 270px;
         z-index: 10;
         padding: 0 15px;
     }
