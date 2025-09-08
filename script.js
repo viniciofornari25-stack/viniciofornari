@@ -340,3 +340,72 @@ function lazyLoadImages() {
 }
 
 document.addEventListener('DOMContentLoaded', lazyLoadImages);
+
+// WhatsApp Button Functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const whatsappBtn = document.querySelector('.whatsapp-btn');
+    const whatsappFloat = document.querySelector('.whatsapp-float');
+    
+    if (whatsappBtn && whatsappFloat) {
+        // Add click tracking
+        whatsappBtn.addEventListener('click', (e) => {
+            // Optional: Add analytics tracking here
+            console.log('WhatsApp button clicked');
+            
+            // Add a small animation on click
+            whatsappBtn.style.transform = 'scale(0.9)';
+            setTimeout(() => {
+                whatsappBtn.style.transform = '';
+            }, 150);
+        });
+        
+        // Show/hide button based on scroll position
+        let lastScrollTop = 0;
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                // Scrolling down
+                whatsappFloat.style.transform = 'translateY(100px)';
+                whatsappFloat.style.opacity = '0.7';
+            } else {
+                // Scrolling up
+                whatsappFloat.style.transform = 'translateY(0)';
+                whatsappFloat.style.opacity = '1';
+            }
+            
+            lastScrollTop = scrollTop;
+        });
+        
+        // Add entrance animation
+        setTimeout(() => {
+            whatsappFloat.style.opacity = '0';
+            whatsappFloat.style.transform = 'translateY(50px) scale(0.8)';
+            whatsappFloat.style.transition = 'all 0.5s ease-out';
+            
+            setTimeout(() => {
+                whatsappFloat.style.opacity = '1';
+                whatsappFloat.style.transform = 'translateY(0) scale(1)';
+            }, 100);
+        }, 2000);
+        
+        // Add hover effects
+        whatsappFloat.addEventListener('mouseenter', () => {
+            whatsappFloat.style.transform = 'scale(1.05)';
+        });
+        
+        whatsappFloat.addEventListener('mouseleave', () => {
+            whatsappFloat.style.transform = 'scale(1)';
+        });
+    }
+});
+
+// WhatsApp message pre-fill functionality
+function openWhatsApp(message = '') {
+    const phoneNumber = '5493872284822';
+    const defaultMessage = message || 'Hola! Me interesa saber más sobre el libro "TIERRALIBRE: LA OTRA CAUSA..." de Vinicio Fornari.';
+    const encodedMessage = encodeURIComponent(defaultMessage);
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    
+    window.open(whatsappUrl, '_blank');
+}
