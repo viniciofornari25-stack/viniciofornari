@@ -603,9 +603,14 @@ body {
 }
 
 .stat:last-child .stat-number {
-    font-size: 1.2rem;
-    line-height: 1.2;
-    word-spacing: 0.1em;
+    font-size: 1rem;
+    line-height: 1.1;
+    word-spacing: 0.05em;
+    letter-spacing: 0.02em;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .stat-label {
